@@ -1,0 +1,593 @@
+/* ========================================
+   common.css - 共通スタイルシート
+   ナビゲーション、フッター、モーダルなどの共通部分
+   ======================================== */
+
+:root {
+    --nav-height: 56px;
+
+    /* 参考サイトベースのブルーグラデーション */
+    --primary-blue: #0066FF;
+    --deep-blue: #003399;
+    --bright-blue: #1E90FF;
+    --light-cyan: #00D4FF;
+    --cyan-accent: #40E0D0;
+    --electric-blue: #0080FF;
+
+    /* 背景とカード */
+    --bg-gradient-start: #0066FF;
+    --bg-gradient-middle: #1E90FF;
+    --bg-gradient-end: #00BFFF;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --card-border: rgba(255, 255, 255, 0.2);
+
+    /* テキストカラー */
+    --text-white: #FFFFFF;
+    --text-light: rgba(255, 255, 255, 0.9);
+    --text-medium: rgba(255, 255, 255, 0.7);
+
+    /* 旧色の互換性維持 */
+    --ocean-deep: var(--deep-blue);
+    --ocean-blue: var(--primary-blue);
+    --sea-blue: var(--bright-blue);
+    --sky-blue: var(--light-cyan);
+    --light-blue: var(--cyan-accent);
+    --foam-white: var(--text-white);
+    --wave-blue: var(--electric-blue);
+    --sail-cream: var(--card-bg);
+    --wind-gray: var(--text-medium);
+}
+
+body {
+    font-family: system-ui, -apple-system, 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
+    line-height: 1.65;
+    color: var(--text-white);
+    background:
+        radial-gradient(circle at 30% 20%, rgba(0, 212, 255, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 70% 80%, rgba(30, 144, 255, 0.2) 0%, transparent 50%),
+        linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-middle) 50%, var(--bg-gradient-end) 100%);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* 波のアニメーション背景 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 30% 70%, rgba(52, 152, 219, 0.05) 0%, transparent 30%),
+        radial-gradient(circle at 70% 30%, rgba(26, 82, 117, 0.03) 0%, transparent 40%);
+    animation: gentle-waves 8s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes gentle-waves {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
+    50% { transform: scale(1.05) rotate(1deg); opacity: 0.8; }
+}
+
+/* ナビゲーション - シンプルな曲線 */
+.nav {
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background: linear-gradient(135deg, rgba(0, 51, 153, 0.3) 0%, rgba(0, 102, 255, 0.25) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0;
+    position: fixed; /* stickyからfixedに変更 */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow:
+        0 2px 15px rgba(0, 102, 255, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.1) inset,
+        0 -1px 0 rgba(0, 0, 0, 0.1) inset;
+}
+
+.nav .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    height: 56px; /* 高さを固定 */
+}
+
+/* CSSトグル（チェックボックス） */
+.nav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; /* 一列表示を強制 */
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    margin: 0 1rem; /* デスクトップ固定間隔 */
+}
+
+.nav a {
+    color: var(--text-white);
+    text-decoration: none !important;
+    padding: 0.5rem 1rem; /* デスクトップ固定パディング */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    font-size: 1rem; /* デスクトップ固定フォントサイズ */
+}
+
+.nav a:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--text-white);
+    transform: translateY(-2px);
+    box-shadow:
+        0 5px 15px rgba(0, 212, 255, 0.3),
+        0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    backdrop-filter: blur(10px);
+    text-decoration: none !important;
+}
+
+/* メールアイコンに背景色追加と位置調整 */
+.nav-contact a {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem !important;
+    transition: all 0.3s ease;
+    transform: translateY(2px); /* 位置を下に調整 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-contact a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(0px);
+}
+
+/* ナビゲーションとヘッダーのオーバーラップを統一 */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height); /* ナビゲーションの高さを変数で管理 */
+    z-index: 1000;
+}
+
+/* ヒーロー領域はナビとオーバーラップ（上余白は付けない） */
+.header,
+.hero-section,
+body > header {
+    margin-top: 0 !important;
+    position: relative;
+}
+
+/* すべてのページで nav をヒーロー上に重ねる（隣接時の確実な上書き） */
+.nav + .header,
+.nav + .hero-section,
+.nav + header {
+  margin-top: 0 !important;      /* 上余白を付けない */
+  padding-top: clamp(0px, 2vh, 16px); /* 重なり時の最低限の内側余白（読みやすさ）*/
+}
+
+/* 固定ヘッダーに対するアンカーの見切れ防止（軽微な改善） */
+[id] {
+    scroll-margin-top: calc(var(--nav-height) + 8px);
+}
+
+/* メインコンテンツ */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+/* フッター - 水平線の向こう風 */
+.footer {
+    background:
+        linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-blue) 50%, var(--wave-blue) 100%),
+        radial-gradient(circle at 30% 10%, rgba(93, 173, 226, 0.1) 0%, transparent 60%);
+    color: var(--foam-white);
+    text-align: center;
+    padding: 2.5rem 0;
+    border-top: 3px solid var(--sky-blue);
+    position: relative;
+}
+
+.footer-logo {
+    max-height: 26px;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter:
+        drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.6))
+        drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.4))
+        drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.4))
+        drop-shadow(1px -1px 0px rgba(255, 255, 255, 0.4))
+        drop-shadow(-1px 1px 0px rgba(255, 255, 255, 0.4))
+        drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.2));
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background:
+        radial-gradient(ellipse 300% 100% at 10% 0%, var(--light-blue) 0%, transparent 50%),
+        radial-gradient(ellipse 200% 80% at 50% 0%, var(--sky-blue) 0%, transparent 40%),
+        radial-gradient(ellipse 250% 90% at 90% 0%, var(--sea-blue) 0%, transparent 45%);
+    animation: wave-motion 4s ease-in-out infinite reverse;
+}
+
+.footer p {
+    margin-bottom: 1rem;
+}
+
+.footer .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+/* 会社モーダル */
+.company-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 253, 255, 0.9)),
+        radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.1), transparent 60%);
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow:
+        0 25px 50px rgba(0, 102, 255, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: slideIn 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--bright-blue));
+    color: var(--text-white);
+    padding: 1.5rem 2rem;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    pointer-events: none;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.close-btn {
+    color: var(--text-white);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.company-info {
+    margin-bottom: 2rem;
+}
+
+.company-info p {
+    color: var(--ocean-deep);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s ease;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.company-info-btn {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: var(--text-white);
+    box-shadow: 0 4px 15px rgba(30, 64, 175, 0.4);
+}
+
+.company-info-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 64, 175, 0.5);
+}
+
+.sns-btn {
+    background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: var(--text-white);
+    box-shadow: 0 4px 15px rgba(188, 24, 136, 0.3);
+}
+
+.sns-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(188, 24, 136, 0.4);
+}
+
+.sns-btn:disabled {
+    background: linear-gradient(135deg, #ccc, #999);
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.visit-experience-btn {
+    background: linear-gradient(135deg, #059669, #10b981);
+    color: var(--text-white);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.visit-experience-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.action-btn i {
+    font-size: 1.2rem;
+}
+
+/* アニメーション */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes wave-motion {
+    0%, 100% { transform: translateX(0) scaleY(1); }
+    50% { transform: translateX(10px) scaleY(1.1); }
+}
+
+/* メールアイコンサイズ統一 */
+.nav-contact svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header-logo {
+        max-height: 32px;
+    }
+
+    .footer-logo {
+        max-height: 21px;
+    }
+
+    /* ナビゲーション最適化 */
+    .nav .nav-inner {
+        padding: 0 0.5rem;
+    }
+
+    .nav li {
+        margin: 0 0.4rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.3rem;
+        display: block;
+        width: 100%;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .mission, .success-stories, .news-events {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-logo {
+        max-height: 28px;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-logo {
+        max-height: 18px;
+        margin-bottom: 0.8rem;
+    }
+
+    /* 小画面ナビゲーション最適化 */
+    .nav .nav-inner {
+        padding: 0 0.3rem;
+    }
+
+    .nav li {
+        margin: 0 0.2rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.15rem;
+        border-radius: 6px;
+        display: block;
+        width: 100%;
+    }
+
+    .modal-content {
+        width: calc(98% - 10px);
+        margin: 5% auto;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .modal-header {
+        padding: 1rem 1.2rem;
+    }
+
+    .modal-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .modal-body {
+        padding: 1.2rem;
+    }
+
+    .action-btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .header-logo {
+        max-height: 24px;
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-logo {
+        max-height: 16px;
+        margin-bottom: 0.6rem;
+    }
+
+    /* 最小画面ナビゲーション最適化 */
+    .nav .nav-inner {
+        padding: 0 0.2rem;
+    }
+
+    .nav li {
+        margin: 0 0.1rem;
+        flex: 1;
+        text-align: center;
+    }
+
+    .nav a {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.1rem;
+        border-radius: 4px;
+        display: block;
+        width: 100%;
+    }
+}

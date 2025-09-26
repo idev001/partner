@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ｜北本造船協力会</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/inner.css">
+    <script src="js/script.js"></script>
+</head>
+<body>
+
+    <!-- ナビゲーション -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <!-- メニュー -->
+            <ul>
+                <li><a href="index.html#header">HOME</a></li>
+                <li><a href="index.html#companies">会社一覧</a></li>
+                <li><a href="index.html#news">ニュース</a></li>
+                <li><a href="trial.html">体験会</a></li>
+            </ul>
+            <!-- メールアイコン -->
+            <div class="nav-contact">
+                <a href="contact.html" class="contact-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヘッダー -->
+    <header>
+        <div class="absolute">
+            <img src="img/mv.jpg" alt="造船現場の様子">
+            <div class="bg-black"></div>
+        </div>
+        <div class="relative">
+            <p class="text-sm md:text-base mb-2 tracking-widest text-white">KITANIHON SHIPBUILDING CO.,LTD.</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-6 text-white drop-shadow-lg">
+                お問い合わせ
+            </h1>
+            <p class="max-w-2xl mx-auto text-base md:text-lg mb-6 text-gray-200 drop-shadow-md">
+                ご質問・ご相談がございましたら、お気軽にお問い合わせください。
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- お問い合わせフォーム -->
+        <section class="contact-section">
+            <div class="contact-container">
+                <h2 class="section-title">お問い合わせフォーム</h2>
+                <p class="section-subtitle">お気軽にご相談ください。担当者より2営業日以内にご連絡いたします。</p>
+                
+                <div class="contact-form-card">
+                    <form class="contact-form" action="#" method="POST">
+                        <div class="space-y-6">
+                            <div class="contact-form-group">
+                                <label for="name" class="block text-left font-semibold mb-1">お名前<span class="required">*</span></label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-cyan-500 focus:border-cyan-500">
+                            </div>
+
+                            <div class="contact-form-group">
+                                <label for="email" class="block text-left font-semibold mb-1">メールアドレス<span class="required">*</span></label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-cyan-500 focus:border-cyan-500">
+                            </div>
+
+                            <div class="contact-form-group">
+                                <label for="address" class="block text-left font-semibold mb-1">住所</label>
+                                <input type="text" id="address" name="address" class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-cyan-500 focus:border-cyan-500">
+                            </div>
+
+                            <div class="contact-form-group">
+                                <label for="company" class="block text-left font-semibold mb-1">お問い合わせ先<span class="required">*</span></label>
+                                <select id="company" name="company" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-cyan-500 focus:border-cyan-500">
+                                    <option value="">選択してください</option>
+                                    <option value="北日本造船">北日本造船</option>
+                                    <option value="デンキョウ">デンキョウ</option>
+                                    <option value="信和工業">信和工業</option>
+                                    <option value="大島工業">大島工業</option>
+                                    <option value="三上船舶工業">三上船舶工業</option>
+                                    <option value="丸博渡辺建設">丸博渡辺建設</option>
+                                    <option value="笹森電機">笹森電機</option>
+                                    <option value="JOK">JOK</option>
+                                    <option value="ST企画">ST企画</option>
+                                    <option value="細川工業">細川工業</option>
+                                    <option value="関向工業">関向工業</option>
+                                    <option value="YTクラフト">YTクラフト</option>
+                                    <option value="江陽産業">江陽産業</option>
+                                    <option value="北日本シャーリング">北日本シャーリング</option>
+                                </select>
+                            </div>
+
+                            <div class="contact-form-group">
+                                <label for="message" class="block text-left font-semibold mb-1">お問い合わせ内容<span class="required">*</span></label>
+                                <textarea id="message" name="message" rows="6" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white text-gray-900 focus:ring-cyan-500 focus:border-cyan-500"></textarea>
+                            </div>
+
+                            <div class="contact-form-group">
+                                <button type="submit" class="contact-submit">
+                                    送信する
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 連絡先情報 -->
+        <section class="contact-info-section">
+            <div class="contact-container">
+                <h2 class="section-title">連絡先情報</h2>
+                <div class="contact-info-grid">
+                    <div class="contact-info-card">
+                        <h3>本部連絡先</h3>
+                        <div class="space-y-2">
+                            <p><strong>TEL:</strong> 03-0000-0000</p>
+                            <p><strong>Email:</strong> info@cooperation-network.jp</p>
+                            <p><strong>受付時間:</strong> 平日 9:00-17:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-card">
+                        <h3>協力会社募集</h3>
+                        <div class="space-y-2">
+                            <p>新しいパートナーを常時募集しています</p>
+                            <p>お気軽にお問い合わせください</p>
+                            <p><strong>Email:</strong> partner@cooperation-network.jp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <img src="img/sitename.png" alt="協力会社ネットワーク" class="footer-logo">
+        <p>共に未来を創る - Together We Build the Future</p>
+        <div class="contact-info">
+            <div>
+                <strong>本部連絡先</strong><br>
+                TEL: 03-0000-0000<br>
+                Email: info@cooperation-network.jp
+            </div>
+            <div>
+                <strong>協力会社募集</strong><br>
+                新しいパートナーを常時募集しています<br>
+                お気軽にお問い合わせください
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+            © 2025 北本造船協力会. All rights reserved.
+        </p>
+    </footer>
+
+</body>
+</html>

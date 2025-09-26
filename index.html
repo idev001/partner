@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北本造船協力会 - 八戸市から世界へ</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <!-- ナビゲーション -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <!-- メニュー -->
+            <ul>
+                <li><a href="#header">HOME</a></li>
+                <li><a href="#companies">会社一覧</a></li>
+                <li><a href="#news">ニュース</a></li>
+                <li><a href="trial.html">体験会</a></li>
+            </ul>
+            <!-- メールアイコン -->
+            <div class="nav-contact">
+                <a href="contact.html" class="contact-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <img src="img/sitename.png" alt="協力会社ネットワーク" class="header-logo">
+        <p>共に未来を創る - Together We Build the Future</p>
+        <div class="hero-actions">
+            <a href="#companies" class="button button--primary">協力会社を見る</a>
+            <a href="contact.html" class="button button--ghost">参加のご相談</a>
+        </div>
+        <!-- Canvas波アニメーション -->
+        <canvas id="waveCanvas"></canvas>
+    </header>
+
+    <div class="container">
+        <!-- パーティクル背景 -->
+        <canvas id="bubbleCanvas"></canvas>
+
+        <!-- 会社一覧 -->
+        <section id="companies" class="companies">
+            <div class="company-grid">
+                <!-- メイン会社 -->
+                <div class="company-card main-company-card" id="main-company">
+                    <div class="content-wrapper">
+                        <h3>北日本造船</h3>
+                        <span class="specialty">船舶建造</span>
+                        <p>～世界需要の対応から、地域社会の発展まで～</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>デンキョウ</h3>
+                        <span class="specialty">配管・溶接・製缶</span>
+                        <p>船舶の配管溶接、取付、ダクト機器台製作</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>信和工業</h3>
+                        <span class="specialty">金属加工・製造</span>
+                        <p>精鉄工・溶接・ステンレス加工仕上げ</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>大島工業</h3>
+                        <span class="specialty">造船・塗装・施工管理</span>
+                        <p>機械器具設置、とび、土工、足場組み立て解体、鉄工、塗装工</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>三上船舶工業</h3>
+                        <span class="specialty">船舶部品・修理</span>
+                        <p>サビ取り、磨き作業、塗装</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>丸博渡辺建設</h3>
+                        <span class="specialty">足場組立、解体作業</span>
+                        <p>造船所建設と土木工事</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>笹森電機</h3>
+                        <span class="specialty">船舶電機工事</span>
+                        <p>船舶電機工事・電装品販売修理・電気設備保守点検</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>JOK</h3>
+                        <span class="specialty">船舶製造関連工事</span>
+                        <p>船舶製造における船舶ブロック組立・熔接・塗装</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>ST企画</h3>
+                        <span class="specialty">設計・企画開発</span>
+                        <p>船舶設計と企画開発</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>細川工業</h3>
+                        <span class="specialty">精密機械・部品加工</span>
+                        <p>精密機械部品の加工製造</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>関向工業</h3>
+                        <span class="specialty">建設業</span>
+                        <p>とび・土工工、管工、鋼構造物工、機械器具設置</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>YTクラフト</h3>
+                        <span class="specialty">クラフト・特殊技術</span>
+                        <p>特殊技術とクラフト製造</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>江陽産業</h3>
+                        <span class="specialty">産業機械・システム</span>
+                        <p>産業機械システム構築</p>
+                    </div>
+                </div>
+
+                <div class="company-card">
+                    <div class="content-wrapper">
+                        <h3>北日本シャーリング</h3>
+                        <span class="specialty">金属加工・シャーリング</span>
+                        <p>精密金属シャーリング加工</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ニュース -->
+        <section id="news" class="news-events">
+            <h2>ニュース</h2>
+            
+            <div class="news-item">
+                <div class="news-date">2025年9月12日</div>
+                <div class="news-title">信和工業 - 鉄工・溶接作業員募集中</div>
+                <div class="news-summary">
+                    現在信和工業では、一般作業員、仕上げ・軽作業員、鉄工・溶接作業員、艤装品・配管取付作業の担当を募集中です。
+                    未経験者歓迎で、作業服・安全靴・保護具一式を支給。資格取得費用も会社負担で、安心してスキルアップできます。お気軽にお問い合わせください。
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">2025年9月18日</div>
+                <div class="news-title">大島工業 - 技術者・職人募集中</div>
+                <div class="news-summary">
+                    大島工業では、船舶建造に関わる技術者・職人を積極的に募集しています。
+                    玉掛け、クレーン、フォークリフトなどの資格取得支援も充実。経験の有無を問わず、やる気のある方を歓迎します。
+                    詳細はお問い合わせください。
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-date">2025年9月25日</div>
+                <div class="news-title">協力会社各社 - 未経験者歓迎職種多数</div>
+                <div class="news-summary">
+                    協力会社ネットワークでは、組立鉄工、溶接作業、艤装・配管、仕上げ作業など様々な職種を募集。
+                    賃金194,400円～280,000円、週休2日制、退職金制度あり。未経験から一人前の職人を目指せる環境が整っています。
+                </div>
+            </div>
+        </section>
+
+        </section>
+    </div>
+
+    <!-- パートナー・ロゴ帯（仮） -->
+    <div class="partner-strip">
+        <div class="marquee">
+            <div class="track">
+                <div class="logo">北日本造船</div>
+                <div class="logo">デンキョウ</div>
+                <div class="logo">信和工業</div>
+                <div class="logo">大島工業</div>
+                <div class="logo">三上船舶工業</div>
+                <div class="logo">丸博渡辺建設</div>
+                <div class="logo">笹森電機</div>
+                <div class="logo">JOK</div>
+                <div class="logo">ST企画</div>
+                <div class="logo">細川工業</div>
+                <div class="logo">関向工業</div>
+                <div class="logo">YTクラフト</div>
+                <div class="logo">江陽産業</div>
+                <div class="logo">北日本シャーリング</div>
+                <!-- ループのため複製 -->
+                <div class="logo">北日本造船</div>
+                <div class="logo">デンキョウ</div>
+                <div class="logo">信和工業</div>
+                <div class="logo">大島工業</div>
+                <div class="logo">三上船舶工業</div>
+                <div class="logo">丸博渡辺建設</div>
+                <div class="logo">笹森電機</div>
+                <div class="logo">JOK</div>
+                <div class="logo">ST企画</div>
+                <div class="logo">細川工業</div>
+                <div class="logo">関向工業</div>
+                <div class="logo">YTクラフト</div>
+                <div class="logo">江陽産業</div>
+                <div class="logo">北日本シャーリング</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- フッター -->
+    <footer id="contact" class="footer">
+        <img src="img/sitename.png" alt="協力会社ネットワーク" class="footer-logo">
+        <p>共に未来を創る - Together We Build the Future</p>
+        <div class="contact-info">
+            <div>
+                <strong>本部連絡先</strong><br>
+                TEL: 03-0000-0000<br>
+                Email: info@cooperation-network.jp
+            </div>
+            <div>
+                <strong>協力会社募集</strong><br>
+                新しいパートナーを常時募集しています<br>
+                お気軽にお問い合わせください
+            </div>
+        </div>
+        <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">
+            © 2025 北本造船協力会. All rights reserved.
+        </p>
+    </footer>
+
+    <!-- 会社モーダル -->
+    <div class="company-modal" id="companyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalCompanyName">会社名</h3>
+                <span class="close-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="company-info">
+                    <p id="modalCompanyDescription">会社の詳細情報</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="action-btn company-info-btn">
+                        <i class="icon-info"></i>会社情報を見る
+                    </button>
+                    <button class="action-btn visit-experience-btn">
+                        <i class="icon-visit"></i>現場見学・体験
+                    </button>
+                    <button class="action-btn sns-btn" data-available="false" disabled>
+                        <i class="icon-sns"></i>SNS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
