@@ -69,8 +69,17 @@ body::before {
 }
 
 @keyframes gentle-waves {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.5; }
-    50% { transform: scale(1.05) rotate(1deg); opacity: 0.8; }
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.05) rotate(1deg);
+        opacity: 0.8;
+    }
 }
 
 /* ナビゲーション - シンプルな曲線 */
@@ -80,7 +89,8 @@ body::before {
     background: linear-gradient(135deg, rgba(0, 51, 153, 0.3) 0%, rgba(0, 102, 255, 0.25) 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0;
-    position: fixed; /* stickyからfixedに変更 */
+    position: fixed;
+    /* stickyからfixedに変更 */
     top: 0;
     left: 0;
     right: 0;
@@ -100,7 +110,8 @@ body::before {
     justify-content: center;
     gap: 1rem;
     position: relative;
-    height: 56px; /* 高さを固定 */
+    height: 56px;
+    /* 高さを固定 */
 }
 
 /* CSSトグル（チェックボックス） */
@@ -114,24 +125,28 @@ body::before {
     list-style: none;
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* 一列表示を強制 */
+    flex-wrap: nowrap;
+    /* 一列表示を強制 */
     margin: 0;
     padding: 0;
 }
 
 .nav li {
-    margin: 0 1rem; /* デスクトップ固定間隔 */
+    margin: 0 1rem;
+    /* デスクトップ固定間隔 */
 }
 
 .nav a {
     color: var(--text-white);
     text-decoration: none !important;
-    padding: 0.5rem 1rem; /* デスクトップ固定パディング */
+    padding: 0.5rem 1rem;
+    /* デスクトップ固定パディング */
     border-radius: 8px;
     transition: all 0.3s ease;
     white-space: nowrap;
     position: relative;
-    font-size: 1rem; /* デスクトップ固定フォントサイズ */
+    font-size: 1rem;
+    /* デスクトップ固定フォントサイズ */
 }
 
 .nav a:hover {
@@ -151,7 +166,8 @@ body::before {
     border-radius: 8px;
     padding: 0.5rem !important;
     transition: all 0.3s ease;
-    transform: translateY(2px); /* 位置を下に調整 */
+    transform: translateY(2px);
+    /* 位置を下に調整 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -168,24 +184,27 @@ body::before {
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-height); /* ナビゲーションの高さを変数で管理 */
+    height: var(--nav-height);
+    /* ナビゲーションの高さを変数で管理 */
     z-index: 1000;
 }
 
 /* ヒーロー領域はナビとオーバーラップ（上余白は付けない） */
 .header,
 .hero-section,
-body > header {
+body>header {
     margin-top: 0 !important;
     position: relative;
 }
 
 /* すべてのページで nav をヒーロー上に重ねる（隣接時の確実な上書き） */
-.nav + .header,
-.nav + .hero-section,
-.nav + header {
-  margin-top: 0 !important;      /* 上余白を付けない */
-  padding-top: clamp(0px, 2vh, 16px); /* 重なり時の最低限の内側余白（読みやすさ）*/
+.nav+.header,
+.nav+.hero-section,
+.nav+header {
+    margin-top: 0 !important;
+    /* 上余白を付けない */
+    padding-top: clamp(0px, 2vh, 16px);
+    /* 重なり時の最低限の内側余白（読みやすさ）*/
 }
 
 /* 固定ヘッダーに対するアンカーの見切れ防止（軽微な改善） */
@@ -220,12 +239,7 @@ body > header {
     margin-left: auto;
     margin-right: auto;
     filter:
-        drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.6))
-        drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.4))
-        drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.4))
-        drop-shadow(1px -1px 0px rgba(255, 255, 255, 0.4))
-        drop-shadow(-1px 1px 0px rgba(255, 255, 255, 0.4))
-        drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.2));
+        drop-shadow(0px 0px 2px rgba(255, 255, 255, 0.6)) drop-shadow(1px 1px 0px rgba(255, 255, 255, 0.4)) drop-shadow(-1px -1px 0px rgba(255, 255, 255, 0.4)) drop-shadow(1px -1px 0px rgba(255, 255, 255, 0.4)) drop-shadow(-1px 1px 0px rgba(255, 255, 255, 0.4)) drop-shadow(0px 0px 6px rgba(255, 255, 255, 0.2));
 }
 
 .footer::before {
@@ -296,6 +310,7 @@ body > header {
     justify-content: space-between;
     align-items: center;
     position: relative;
+    min-height: 60px;
 }
 
 .modal-header::before {
@@ -305,7 +320,7 @@ body > header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
     pointer-events: none;
 }
 
@@ -316,11 +331,15 @@ body > header {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     position: relative;
     z-index: 1;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    height: 40px;
 }
 
 .close-btn {
     color: var(--text-white);
-    font-size: 2rem;
+    font-size: 0;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -333,6 +352,25 @@ body > header {
     justify-content: center;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+
+.close-btn::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-white);
+    transform: rotate(45deg);
+}
+
+.close-btn::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    background-color: var(--text-white);
+    transform: rotate(-45deg);
 }
 
 .close-btn:hover {
@@ -439,8 +477,13 @@ body > header {
 
 /* アニメーション */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes slideIn {
@@ -448,6 +491,7 @@ body > header {
         opacity: 0;
         transform: translateY(-50px) scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -455,8 +499,15 @@ body > header {
 }
 
 @keyframes wave-motion {
-    0%, 100% { transform: translateX(0) scaleY(1); }
-    50% { transform: translateX(10px) scaleY(1.1); }
+
+    0%,
+    100% {
+        transform: translateX(0) scaleY(1);
+    }
+
+    50% {
+        transform: translateX(10px) scaleY(1.1);
+    }
 }
 
 /* メールアイコンサイズ統一 */
@@ -497,11 +548,23 @@ body > header {
         width: 100%;
     }
 
+    .nav-contact a {
+        padding: 0.4rem !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        margin: 0 auto;
+        transform: translateY(0) !important;
+    }
+
     .container {
         padding: 1rem;
     }
 
-    .mission, .success-stories, .news-events {
+    .mission,
+    .success-stories,
+    .news-events {
         padding: 2rem;
     }
 }
@@ -534,6 +597,16 @@ body > header {
         border-radius: 6px;
         display: block;
         width: 100%;
+    }
+
+    .nav-contact a {
+        padding: 0.3rem !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        margin: 0 auto;
+        transform: translateY(0) !important;
     }
 
     .modal-content {
@@ -589,5 +662,15 @@ body > header {
         border-radius: 4px;
         display: block;
         width: 100%;
+    }
+
+    .nav-contact a {
+        padding: 0.25rem !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: auto !important;
+        margin: 0 auto;
+        transform: translateY(0) !important;
     }
 }
